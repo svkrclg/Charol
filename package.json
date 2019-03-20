@@ -1,0 +1,20 @@
+{
+  "name": "CHAROL",
+  "version": "1.0.0",
+  "description": "GENESIS",
+  "main": "truffle.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "dev": "lite-server"
+  },
+  "author": "riVal-sharma",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.3.0"
+  },
+  "dependencies": {
+    "openzeppelin-solidity": "^2.2.0"
+  }
+}

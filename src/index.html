@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Charol Token ICO Sale</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container" style="width: 650px;">
+      <div class="row">
+        <div class="col-lg-12">
+            <h1 class="text-center">CHAROL</h1>
+            <hr/>
+            <br/>
+        </div>
+        <div id="loader">
+          <p class="text-center">Loading...</p>
+        </div>
+        <div id="content" class="text-center" style="display: none;">
+          <p>
+           1:1 price backed with INR <span class="token-price"></span>. You currently have <span class="CHR-balance"></span>&nbsp;CHR.
+          </p>
+          <br/><!--
+          <form onSubmit="App.buyTokens(); return false;" role="form" id= "buyTokens">
+            <div class="form-group">
+              <div class="input-group">
+                <input id="numberOfTokens" class="form-control input-lg" type="number" name="number" value="1" min="1" pattern="[0-9]">
+                </input>
+                <span class="input-group-btn">
+                  <button type="submit" class="btn btn-primary btn-lg">Buy Tokens</button>
+                </span>
+              </div>
+            </div>
+          </form>-->
+          <form class="form-inline" onSubmit="App.buyTokens(); return false;" role="form" id= "buyTokens">
+            <div class="form-group">
+              <label class="sr-only" for="exampleInputAmount">Amount</label>
+              <div class="input-group">
+                <div class="input-group-addon">CHR</div>
+                <input type="text" class="form-control" id="numberOfTokens" placeholder="Amount",name="number" value="1" >
+                <div class="input-group-addon">.00</div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Buy Token</button>
+          </form>
+          <br>
+          <p><span class="tokens-sold"></span> 
+          <hr>
+          <div style="white-space:nowrap;" id="Donations"></div><br><br>
+          <form onsubmit="App.donate(); return false; " role ="form" id="carform">
+            <select id="charities" form="carform">
+            </select>
+           Amount  <input type="number" id="amount" name="amount">
+             <button type="submit" class="btn btn-success">Donate</button>
+          </form>
+          <form onsubmit="App.addCharity(); return false;" role="form" id="addCharity">
+          <p id="accountAddress"></p>
+          <br>
+          <input id="nameCharity" type="text" name="nameCharity">
+          <button type="submit" class="btn btn-success">Add Charity</button>
+        </form><br><br>
+        <div id="info"></div>
+        <p id="charitList"></p>
+        </div>
+        <br><br>
+      </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.min.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

@@ -90,8 +90,9 @@ App = {
 
     var loader  = $('#loader');
     var content = $('#content');
-
+    var charityStatus=$('#charityStatus');
     loader.show();
+    charityStatus.hide();
     content.hide();
 
     // Load account data
@@ -122,7 +123,7 @@ App = {
         }
         return CHRTokenInstance.balanceOf(App.account);
       }).then(function(balance) {
-        $('.CHR-balance').html(balance.toNumber());
+        $('.CHR-balance').html("Your wallet: "+balance.toNumber());
         App.loading = false;
         loader.hide();
         content.show();
@@ -138,6 +139,7 @@ App = {
           instance.index().then( async function(result){
             console.log("result index "+result);
             var dvTable = document.getElementById("Donations");
+      
             dvTable.innerHTML="";
             for(var ind=0;ind<result;ind++)
             {
@@ -149,14 +151,14 @@ App = {
                   const [addrs, amts]= re;
                   var trTable = new Array();
                   trTable.push(["Donor Address", "CHR"]);
-                  for (let k = 0; k < addrs.length; k++)
+                  for (let krender= 0; k < addrs.length; k++)
                    {
                     console.log(addrs[k]+"  "+ amts[k]);
                     trTable.push([addrs[k], amts[k]]);
                    } 
                     var table = document.createElement("TABLE");  
+                    table.className= "table table-hover";
                     var cap= table.createCaption();
-                    table.border = "1";
  
                     //Get the count of columns.
                     var columnCount = trTable[0].length;
@@ -165,7 +167,7 @@ App = {
                     for (var i = 0; i < columnCount; i++) {
                       var headerCell = document.createElement("TH");
                       headerCell.innerHTML = trTable[0][i];
-                      row.appendChild(headerCell);
+                      row.aprenderendChild(headerCell);
                     }
                     for (var i = 1; i < trTable.length; i++) {
                         row = table.insertRow(-1);
@@ -283,6 +285,8 @@ App = {
       return  instance.addCharity(App.account, name);
     }).then(function(result){
       console.log("result: "+result);
+      var charityStatus=$('#charityStatus');
+      charityStatus.show();
       App.render();
     });
   }

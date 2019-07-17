@@ -8,20 +8,39 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
   </head>
-  <body>
+  <body style="background-color:#EDEFFF">
+      <div  style="float:left; margin:5px" >
+          
+          <button type="submit" class="btn btn-primary">Login</button>
+      </div>
+      <div  style="float:left; margin:5px" >
+          
+          <button type="submit" class="btn btn-secondary">Registration</button>
+      </div>
+      <div style="float:right; background-color: #e7e7e7; color: black; font-size:25px; margin: 5px; padding: 2px; border-radius: 10px;">
+      <span class="CHR-balance"></span>&nbsp;CHR
+    </div>
     <div class="container" style="width: 650px;">
+      
       <div class="row">
+        
         <div class="col-lg-12">
-            <h1 class="text-center">CHAROL</h1>
-            <hr/>
+          
+            <img src = "full_logo.png" style=" display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 70%;">
+          
+            <hr style= "border-color: inherit; border-width:1px;"/>
             <br/>
         </div>
+        
         <div id="loader">
           <p class="text-center">Loading...</p>
         </div>
         <div id="content" class="text-center" style="display: none;">
-          <p>
-           1:1 price backed with INR <span class="token-price"></span>. You currently have <span class="CHR-balance"></span>&nbsp;CHR.
+          <p style="font-family: monospace; font-weight: 800;">
+           1:1 price backed with INR<span class="token-price"></span>.
           </p>
           <br/><!--
           <form onSubmit="App.buyTokens(); return false;" role="form" id= "buyTokens">
@@ -48,7 +67,7 @@
           </form>
           <br>
           <p><span class="tokens-sold"></span> 
-          <hr>
+            <hr style= "border-color: inherit; border-width:1px;"/>
           <div style="white-space:nowrap;" id="Donations"></div><br><br>
           <form onsubmit="App.donate(); return false; " role ="form" id="carform">
             <select id="charities" form="carform">
@@ -56,11 +75,10 @@
            Amount  <input type="number" id="amount" name="amount">
              <button type="submit" class="btn btn-success">Donate</button>
           </form>
-          <form onsubmit="App.addCharity(); return false;" role="form" id="addCharity">
+          <form action="addch.html">
           <p id="accountAddress"></p>
           <br>
-          <input id="nameCharity" type="text" name="nameCharity">
-          <button type="submit" class="btn btn-success">Add Charity</button>
+          <button type="submit" class="btn btn-success">ADD Charity </button>
         </form><br><br>
         <div id="info"></div>
         <p id="charitList"></p>

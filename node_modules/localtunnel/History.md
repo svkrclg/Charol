@@ -1,3 +1,18 @@
+# 1.9.2 (2019-06-01)
+
+* Update debug to 4.1.1
+* Update axios to 0.19.0
+
+# 1.9.1 (2018-09-08)
+
+* Update debug to 2.6.9
+
+# 1.9.0 (2018-04-03)
+
+* Add _request_ event to Tunnel emitter
+* Update yargs to support config via environment variables
+* Add basic request logging when --print-requests argument is used
+
 # 1.8.3 (2017-06-11)
 
 * update request dependency

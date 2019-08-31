@@ -12,7 +12,7 @@
   "author": "riVal-sharma",
   "license": "ISC",
   "devDependencies": {
-    "lite-server": "^2.3.0"
+    "lite-server": "^2.5.4"
   },
   "dependencies": {
     "openzeppelin-solidity": "^2.2.0"

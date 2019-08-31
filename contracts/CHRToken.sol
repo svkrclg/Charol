@@ -32,10 +32,16 @@ contract CHRToken {
     address[] public charAddr;
     mapping(address => string) public charityName;
     mapping(address=> TransactionDetail) public transactionHistoryOfCharity;
+    
+
     string n="";
     constructor (uint256 _initialSupply) public {
         balanceOf[msg.sender] = _initialSupply;
         totalSupply = _initialSupply;
+        /*charityName[address(0x3517A29b19c9D4D2670D397E078202A0267289D0)]  ="dsd";
+         charAddr.push(0x3517A29b19c9D4D2670D397E078202A0267289D0);
+         index++;
+        emit CharityAdded("dsd",0x3517A29b19c9D4D2670D397E078202A0267289D0);*/
     }
 
     function transfer(address _from, address _to, uint256 _value) public returns (bool success) {

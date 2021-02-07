@@ -11,15 +11,32 @@ App = {
     return App.initWeb3();
   },
 
-  initWeb3: function() {
-    if (typeof web3 !== 'undefined') {
+  initWeb3: async function() {
+  //	async function initWeb3(){
+    /*if (typeof web3 !== 'undefined') {
       // If a web3 instance is already provided by Meta Mask.
       App.web3Provider = web3.currentProvider;
       web3 = new Web3(web3.currentProvider);
-    } else {
+      console.log(web3.eth.accounts);
+    }*/
+     if (window.ethereum) {
+        window.web3 = new Web3(ethereum);
+        try {
+            // Request account access if needed
+            var res= await ethereum.enable();
+            App.web3Provider = web3.currentProvider;
+      web3 = new Web3(web3.currentProvider);
+            console.log(res);
+            App.account=res;
+            // Acccounts now exposed
+        } catch (error) {
+        }
+    }
+     else {
       // Specify default instance if no web3 instance provided
       App.web3Provider = new Web3.providers.HttpProvider('http://localhost:7545');
       web3 = new Web3(App.web3Provider);
+      console.log(web3.eth.accounts);
     }
     return App.initContracts();
   },
@@ -101,6 +118,7 @@ App = {
         App.account = account;
         $('#accountAddress').html("Your Account: " + account);
       }
+      console.log(web3.eth.accounts);
     })
 
     // Load token sale contract
@@ -123,7 +141,7 @@ App = {
         }
         return CHRTokenInstance.balanceOf(App.account);
       }).then(function(balance) {
-        $('.CHR-balance').html("Your wallet: "+balance.toNumber());
+        $('.CHR-balance').html("Your balance: "+balance.toNumber());
         App.loading = false;
         loader.hide();
         content.show();
@@ -151,7 +169,7 @@ App = {
                   const [addrs, amts]= re;
                   var trTable = new Array();
                   trTable.push(["Donor Address", "CHR"]);
-                  for (let krender= 0; k < addrs.length; k++)
+                  for (let k= 0; k < addrs.length; k++)
                    {
                     console.log(addrs[k]+"  "+ amts[k]);
                     trTable.push([addrs[k], amts[k]]);
@@ -167,7 +185,7 @@ App = {
                     for (var i = 0; i < columnCount; i++) {
                       var headerCell = document.createElement("TH");
                       headerCell.innerHTML = trTable[0][i];
-                      row.aprenderendChild(headerCell);
+                      row.appendChild(headerCell);
                     }
                     for (var i = 1; i < trTable.length; i++) {
                         row = table.insertRow(-1);
